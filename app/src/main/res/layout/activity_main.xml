@@ -22,6 +22,7 @@
         android:layout_height="wrap_content"
         android:gravity="center"
         android:text="Made With ❤️ by Om Nalamwar"
+        android:padding="8dp"
         android:fontFamily="@font/grotesk"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.imageview.ShapeableImageView
 import com.squareup.picasso.Picasso
 
-class MyAdapter(val context: Activity, val arrayList: ArrayList<MyData>)
+class MyAdapter(val context: Activity, val arrayList: List<Product>)
     :RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -22,23 +22,23 @@ class MyAdapter(val context: Activity, val arrayList: ArrayList<MyData>)
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.title.text = "Title"
-        holder.desc.text = "Description"
-        holder.time.text = "1:10"
-        holder.image.setImageResource(R.drawable.image)
-//        Picasso.get().load(arrayList[position].image).into(holder.image);
+        val currItem = arrayList[position]
+        holder.title.text = currItem.title
+//        holder.desc.text = "Description"
+//        holder.time.text = "3.00"
+        Picasso.get().load(currItem.thumbnail).into(holder.image);
     }
 
     class MyViewHolder(itemView: View): RecyclerView.ViewHolder(itemView) {
         var title: TextView
-        var desc: TextView
-        var time: TextView
+//        var desc: TextView
+//        var time: TextView
         var image: ShapeableImageView
 
         init{
             title = itemView.findViewById(R.id.musicTitle1)
-            desc = itemView.findViewById(R.id.musicDesc1)
-            time = itemView.findViewById(R.id.musicTime1)
+//            desc = itemView.findViewById(R.id.musicDesc1)
+//            time = itemView.findViewById(R.id.musicTime1)
             image = itemView.findViewById(R.id.musicImage1)
         }
     }
